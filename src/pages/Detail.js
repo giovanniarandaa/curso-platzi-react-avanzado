@@ -1,6 +1,13 @@
 import React from 'react'
-import { PhotoCardWithQuery } from '../components/container/PhotoCardWithQuery'
+import { PhotoCard } from '../components/PhotoCard'
+import { usePhoto } from '../hoc/usePhoto'
 
 export const Detail = ({ detailId }) => {
-  return <PhotoCardWithQuery id={detailId} />
+  const { loading, error, data } = usePhoto(detailId)
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error!...</p>
+
+  const { photo = {} } = data
+  return <PhotoCard {...photo} />
 }
