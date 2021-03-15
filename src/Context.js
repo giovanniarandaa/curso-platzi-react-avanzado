@@ -1,5 +1,4 @@
-import React, { useState, createContext } from 'react'
-
+import React, { createContext, useState } from 'react'
 export const Context = createContext()
 
 const Provider = ({ children }) => {

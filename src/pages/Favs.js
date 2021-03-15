@@ -1,8 +1,9 @@
 import React from 'react'
+import { Layout } from '../components/Layout'
 import { ListOfFavs } from '../components/ListOfFavs'
 import { useGetFavorites } from '../hoc/useGetFavorites'
 
-export const Favs = () => {
+export default () => {
   const { data, loading, error } = useGetFavorites()
 
   if (loading) return <p>Loading...</p>
@@ -10,5 +11,9 @@ export const Favs = () => {
 
   const { favs } = data
 
-  return <ListOfFavs favs={favs} />
+  return (
+    <Layout title='Tus favoritos' subtitle='Aqui puedes encontrar tus favoritos'>
+      <ListOfFavs favs={favs} />
+    </Layout>
+  )
 }
