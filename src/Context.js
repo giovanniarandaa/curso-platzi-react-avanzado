@@ -1,5 +1,4 @@
-import React, { useState, createContext, useEffect } from 'react'
-import { client } from './'
+import React, { useState, createContext } from 'react'
 
 export const Context = createContext()
 
@@ -7,10 +6,6 @@ const Provider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(() => {
     return window.sessionStorage.getItem('token')
   })
-
-  useEffect(() => {
-    client.resetStore()
-  }, [])
 
   const value = {
     isAuth,

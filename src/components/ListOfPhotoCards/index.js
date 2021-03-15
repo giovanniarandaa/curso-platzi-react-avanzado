@@ -4,10 +4,9 @@ import { PhotoCard } from '../PhotoCard'
 
 export const ListOfPhotoCards = ({ categoryId }) => {
   const { loading, error, data } = useGetPhotos(categoryId)
-
   if (loading) return null
 
-  if (error) return <p>{error}</p>
+  if (error) return null
 
   return (
     <ul>
